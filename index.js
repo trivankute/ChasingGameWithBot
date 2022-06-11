@@ -7,6 +7,7 @@ const BG_SIZE = 600
 const squareSize = 30
 let width
 let height
+let speed = 275
 width = height = BG_SIZE/squareSize
 const totalSquares = (BG_SIZE/squareSize)*2-1
 
@@ -337,7 +338,7 @@ startButton.onclick = () => {
         const interval2 = setInterval(()=>{
             wayFromBotToPlayer = findTheWay(wayFromBotToPlayer)
             i=0
-        },250)
+        },speed)
         let interval = setInterval(()=>{
         if(timeCountDown>0&&i<=wayFromBotToPlayer.length-1)
         {
@@ -356,6 +357,7 @@ startButton.onclick = () => {
         {
             clearInterval(interval)
             clearInterval(interval2)
+            clearInterval(timeInterval)
             if(timeCountDown>0)
             {
                 alert('You lose')
@@ -365,7 +367,7 @@ startButton.onclick = () => {
                 alert('You win')
             }
         }
-        },250)
+        },speed)
     }
     else
     {
